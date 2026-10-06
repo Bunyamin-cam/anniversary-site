@@ -5,8 +5,15 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "start": "node scripts/preview.mjs",
+    "lint": "eslint",
+    "photos:prepare": "node scripts/prepare-photos.mjs",
+    "test": "node --test lib/*.test.mjs",
+    "check:export": "node scripts/check-export.mjs",
+    "predev": "npm run photos:sync",
+    "prebuild": "npm run photos:sync",
+    "photos:check": "node scripts/check-photos.mjs",
+    "photos:sync": "node scripts/check-photos.mjs"
   },
   "dependencies": {
     "next": "16.3.8",
@@ -20,6 +27,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.8",
+    "heic-decode": "^2.1.0",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
